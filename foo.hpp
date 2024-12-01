@@ -7,6 +7,20 @@
 
 std::vector< char > foo(std::list< Human >& people)
 {
-    // Twoja implementacja tutaj
-    return {};
+
+    for (auto& person : people) {
+        person.birthday();
+    }
+
+    std::vector<char> result;
+   
+    for (auto it = people.rbegin(); it != people.rend(); ++it) {
+        if (it->isMonster()) {
+            result.push_back('n');
+        } else {
+            result.push_back('y');
+        }
+    }
+
+    return result;
 }
